@@ -2,15 +2,15 @@ steps:
 # Build the container image
 - name: 'gcr.io/cloud-builders/docker'
   id: BUILD
-  args: ['build', '-t', 'gcr.io/sruthi-352112/my-app', '.']
+  args: ['build', '-t', 'gcr.io/brave-streamer-350717/my-app', '.']
 # Push the container image to Container Registry
 - name: 'gcr.io/cloud-builders/docker'
   id: PUSH
-  args: ['push', 'gcr.io/sruthi-352112/my-app']
+  args: ['push', 'gcr.io/brave-streamer-350717/my-app']
 # Deploy container image to Cloud Run
 - name: 'gcr.io/google.com/cloudsdktool/cloud-sdk'
   id: DEPLOY
   entrypoint: gcloud
-  args: ['run', 'deploy', 'cloudrun-service', '--image', 'gcr.io/sruthi-352112/my-app', '--region', 'us-central1']
+  args: ['run', 'deploy', 'cloudrun-service', '--image', 'gcr.io/brave-streamer-350717/my-app', '--region', 'us-central1']
 images:
-- gcr.io/sruthi-352112/my-app
+- gcr.io/brave-streamer-350717/my-app
